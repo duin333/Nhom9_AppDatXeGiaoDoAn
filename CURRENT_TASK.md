@@ -1,40 +1,35 @@
 # FoodGo — Nhiệm vụ hiện tại
 
 ## Trạng thái
-- [x] Đã có thiết kế giao diện cho 4 vai trò dưới dạng ZIP/ảnh.
+- [x] Đã có thiết kế giao diện 4 vai trò, nằm trong `design/` (Admin_Actor, ChuQuan_Actor, KhachHang_Actor, TaiXe_Actor).
 - [x] Đã chốt công nghệ: Android Studio + Kotlin + XML + ViewBinding.
-- [x] JDK người dùng cho biết: JDK 17.
-- [ ] Chưa tạo project Android Studio.
-- [ ] Chưa có mã nguồn ứng dụng.
-- [ ] Chưa xác nhận phiên bản Android Studio, Gradle, AGP và minSdk thực tế.
+- [x] Đã tạo project Android Studio (Empty Views Activity), package `com.foodgo.app`.
+- [x] Gradle Sync thành công, app mẫu chạy được trên emulator ("Hello World").
+- [x] ViewBinding đã bật trong `app/build.gradle.kts`.
+- [x] Đã đẩy lên GitHub: https://github.com/duin333/Nhom9_AppDatXeGiaoDoAn.git (nhánh `main`).
+- [ ] Chưa có mã nguồn tính năng.
+- [ ] Chưa chốt cấu trúc package và model dùng chung.
 
-## Nhiệm vụ hiện tại của Claude Code
-**Chưa code tính năng. Trước tiên hãy kiểm tra môi trường và lập kế hoạch tạo project.**
+## Các quyết định đã chốt
+- JDK 17 (`C:\Program Files\Java\jdk-17`), ghi trong `gradle/gradle-daemon-jvm.properties`. Mọi thành viên cần JDK 17.
+- AGP 9.4.1 (Kotlin tích hợp sẵn, KHÔNG thêm plugin Kotlin riêng).
+- compileSdk 37, targetSdk 37, minSdk 24.
+- Java target: VERSION_11 (mặc định template, giữ nguyên).
+- Gradle: chưa xác nhận (xem `gradle/wrapper/gradle-wrapper.properties`).
+- `.idea/` và `local.properties` nằm trong `.gitignore`.
 
-1. Xem thư mục hiện tại có phải project Android Studio hay chưa.
-2. Nếu chưa có project, giải thích ngắn gọn cấu hình tạo project phù hợp:
-   - Empty Views Activity
-   - Kotlin
-   - XML
-   - ViewBinding
-   - package dự kiến `com.foodgo.app` (chỉ dùng nếu người dùng chưa tạo package khác)
-   - JDK 17 nếu tương thích với Gradle/Android Gradle Plugin của project; không tự ép phiên bản không tương thích.
-3. Không tự ý tạo lại toàn bộ Gradle project nếu người dùng định tạo project bằng Android Studio. Có thể hướng dẫn tạo project trong Android Studio trước, sau đó kiểm tra file.
-4. Khi project đã tồn tại, kiểm tra cấu trúc và đề xuất danh sách file/folder ban đầu.
-5. Đọc thiết kế hiện có trước khi đề xuất code từng màn hình. Không giả định đã xem được ZIP/Figma nếu chúng chưa có trong workspace Claude Code.
-6. Trả về checklist ngắn cho người dùng thực hiện, từng bước một.
+## Nhiệm vụ tiếp theo duy nhất
+**Chốt cấu trúc package và model dùng chung (chưa code màn hình).**
+1. Đề xuất cây package: `ui/`, `data/model/`, `data/repository/`, `viewmodel/`, `utils/`.
+2. Chốt model: FoodItem, Restaurant, CartItem, Order, OrderStatus, UserRole (GroupOrder để sau).
+3. Đối chiếu với trạng thái đơn trong thiết kế Chủ quán/Tài xế/Khách hàng để OrderStatus thống nhất.
+4. Cả nhóm 3 người đồng ý trước khi chia code.
 
-## Định nghĩa hoàn thành
-- Project được tạo trong Android Studio.
-- Gradle Sync thành công.
-- Ứng dụng mẫu chạy được trên emulator/thiết bị.
-- ViewBinding đã bật.
-- Chưa bắt đầu nhiều feature trước khi nền tảng được kiểm tra.
+## File đã thêm/sửa
+- Toàn bộ project Android khởi tạo, 8 file `.md`, thư mục `design/`.
+- `.gitignore` thêm `.idea/`.
 
-## Sau khi hoàn thành nhiệm vụ này
-Cập nhật file này với:
-- trạng thái hiện tại;
-- các quyết định đã chốt;
-- nhiệm vụ tiếp theo duy nhất;
-- file được thêm/sửa;
-- lỗi hoặc giả định còn tồn tại.
+## Lỗi/giả định còn tồn tại
+- Phiên bản Gradle chưa xác nhận.
+- Bộ thiết kế chưa thấy màn hình Group Ordering (tính năng P1); cần nhóm quyết định thiết kế thêm hay làm theo mô tả.
+- 2 thành viên còn lại chưa clone và kiểm tra build trên máy của họ.
